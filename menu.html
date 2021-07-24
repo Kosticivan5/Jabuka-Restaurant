@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="menu.css" />
+    <title>Jabuka</title>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <h1 class="form-title">reservation</h1>
+        <button>
+          <i class="fas fa-times toggle-close"></i>
+        </button>
+      </header>
+      <div class="form-container">
+        <form action="#" class="form">
+          <div class="input-container">
+            <input
+              type="text"
+              name="name"
+              class="input"
+              autocomplete="off"
+              placeholder=" "
+            />
+            <label for="" class="input-label"> your name</label>
+          </div>
+          <div class="input-container">
+            <input
+              type="date"
+              name="date"
+              class="input"
+              autocomplete="off"
+              placeholder=" "
+            />
+            <label for="" class="input-label"></label>
+          </div>
+          <div class="input-container">
+            <input
+              type="number"
+              name="phonenumber"
+              class="input"
+              autocomplete="off"
+              placeholder=" "
+            />
+            <label for="" class="input-label">number of person</label>
+          </div>
+          <div class="txtarea-container">
+            <textarea
+              name="text"
+              id=""
+              class="textarea"
+              placeholder=" "
+            ></textarea>
+            <label for="txt" class="txtarea-label">your message</label>
+          </div>
+          <button class="input-btn" type="submit">send</button>
+        </form>
+      </div>
+    </aside>
+    <div class="layer"></div>
+    <!-- END OF SIDEBAR -->
+    <div class="cover-photo"></div>
+    <!-- HEADER -->
+    <header id="to-top" class="header">
+      <div class="nav-center">
+        <div class="logo-header">
+          <h1><a href="index.html" class="logo"> jabuka</a></h1>
+          <span class="icon-container"
+            ><i class="fas fa-utensils icon"></i
+          ></span>
+        </div>
+        <div class="links-container">
+          <ul class="links">
+            <li><a href="about.html">about</a></li>
+            <li><a href="menu.html">menu</a></li>
+            <li><a href="#" class="contact">contact</a></li>
+            <li><a href="#" class="reserve">reservations</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- END OF HEADER -->
+    <!-- menu -->
+    <div class="menu-container">
+      <div class="title">
+        <h2 class="menu">Menu</h2>
+        <div class="underline"></div>
+      </div>
+      <!-- btn container -->
+      <div class="btn-container">
+        <!-- <button class="btn" type="button" data-id="all">All</button>
+        <button class="btn" type="button" data-id="lunch">Lunch</button>
+        <button class="btn" type="button" data-id="dinner">Dinner</button>
+        <button class="btn" type="button" data-id="dessert">Desserts</button> -->
+      </div>
+      <!-- menu items -->
+      <div class="menu-items">
+        <!-- single item -->
+        <!-- <div class="single-item">
+          <img src="./cake1.jpg" class="single-item__img" alt="cake" />
+          <div class="menu-description">
+            <header class="menu-header">
+              <h4 class="name">chocolate cake</h4>
+              <h4 class="price">$3</h4>
+            </header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+              dolore ratione quibusdam sint laudantium?
+            </p>
+          </div>
+        </div> -->
+        <!-- end of single item -->
+      </div>
+    </div>
+    <!-- end of menu -->
+    <!-- CONTACT -->
+    <div class="contact__background">
+      <!-- contact container -->
+      <div class="contact__container">
+        <!-- contact btn -->
+        <div class="contact-btn">
+          <button>
+            <i class="fas fa-times modal-close"></i>
+          </button>
+        </div>
+        <h1 class="contact__title">jabuka</h1>
+        <h2 class="contact__adress">23. Street south Djeram 123</h2>
+        <h4>booking</h4>
+        <p>tel:(555)481 33 24</p>
+        <h4>jabuka@maile.ur</h4>
+      </div>
+    </div>
+    <!-- END OF CONTACT -->
+
+    <!-- UP BTN -->
+    <a href="#to-top"
+      ><button id="top"><i class="fas fa-angle-double-up"></i></button
+    ></a>
+    <!-- END OF UP BTN -->
+
+    <!-- FOOTER -->
+    <footer>
+      <p>23. Street south Djeram 123</p>
+      <div class="soc-container">
+        <a href="https://instagram.com" target="_blank"
+          ><i class="fab fa-instagram-square"></i
+        ></a>
+        <a href="https://facebook.com" target="_blank"
+          ><i class="fab fa-facebook-square"></i
+        ></a>
+        <a href="https://whatsapp.com" target="_blank"
+          ><i class="fab fa-whatsapp-square"></i
+        ></a>
+      </div>
+      <p>
+        &copy; <span class="copyright"></span> Copyright by "Jabuka" | Design IK
+      </p>
+    </footer>
+    <!-- END OF FOOTER -->
+    <script src="menu.js"></script>
+  </body>
+</html>

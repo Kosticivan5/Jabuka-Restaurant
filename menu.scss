@@ -1,0 +1,662 @@
+@import 'resets';
+@import 'fonts';
+@import 'variables';
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: #fcf8f4;
+  font-family: $body-font;
+}
+.cover-photo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(49, 49, 49, 0.3)),
+    url(./imgs/restaurant.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 50vh;
+  animation: apear 2s ease-in-out forwards;
+}
+// ====================================
+// HEADER
+// ====================================
+.header {
+  background-color: rgba(34, 34, 34, 0.9);
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 15;
+}
+.nav-center {
+  width: 90%;
+  margin: 0 auto;
+  color: $white-grey;
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: $white-grey;
+  font-family: $logo-font;
+  // font-family: $heading-font;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+  text-shadow: $text-shadow;
+}
+
+.icon-container {
+  font-size: 1.6em;
+  transition: $transition;
+  cursor: pointer;
+  text-shadow: $text-shadow;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    color: $lignt-grey;
+  }
+}
+
+.links-container {
+  height: 0;
+  overflow: hidden;
+  transition: $transition;
+  text-align: center;
+  & li {
+    padding: 1em 0;
+  }
+  & a {
+    font-size: 1.5rem;
+    font-family: $body-font;
+    text-transform: capitalize;
+    color: $white-grey;
+    text-shadow: $text-shadow;
+    &:hover {
+      color: $lignt-grey;
+      transition: $transition;
+    }
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+// ====================================
+// MENU
+// ====================================
+.menu-container {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  // border: 10px double $white-grey;
+  animation: apear 1.5s ease-in-out forwards;
+}
+
+// ANIMATION
+@keyframes apear {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.title {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 2em;
+  animation: apear 2s ease-in-out forwards;
+}
+
+.menu {
+  font-family: $heading-font;
+  color: $nice-black;
+  text-shadow: 0.5px 0.5px 2px #000;
+  letter-spacing: 0.1rem;
+}
+
+.underline {
+  width: 3rem;
+  height: 0.2rem;
+  background-color: $nice-black;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  animation: apear 2s ease-in-out forwards;
+}
+
+.btn {
+  min-width: 6em;
+  padding: 0.2rem 0;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $white-grey;
+  background-color: $nice-black;
+  border-color: transparent;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  font-family: $body-font;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    color: $nice-black;
+    background-color: $white-grey;
+    border: 2px solid #000;
+  }
+}
+
+.menu-items {
+  width: 90%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: apear 2s ease-in-out forwards;
+}
+
+.single-item {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.single-item__img {
+  transition: $transition;
+  width: 100%;
+  height: 90%;
+  max-width: 18rem;
+  border-radius: 10px;
+  border: 2px solid $nice-black;
+  box-shadow: 2px 2px 10px $nice-black;
+}
+.menu-description {
+  width: 90%;
+  max-width: 35ch;
+  margin: 0 auto;
+  color: $nice-black;
+  & h4 {
+    text-transform: capitalize;
+  }
+
+  & p {
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+}
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $heading-font;
+  font-size: 1.4rem;
+  border-bottom: 1.5px solid $nice-black;
+  & .price {
+    font-size: 1rem;
+    font-family: $links-font;
+  }
+}
+// ====================================
+// TO TOP BTN
+// ====================================
+#top {
+  display: none;
+}
+#top.top-btn {
+  display: block;
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  position: fixed;
+  bottom: 20px;
+  right: 5px;
+  padding: 0.2rem 0.3rem;
+  font-size: 2em;
+  cursor: pointer;
+  color: $dark-red;
+  animation: jump 1.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+  50% {
+    transform: translateY(0.5rem);
+  }
+}
+
+// ====================================
+// SIDEBAR
+// ====================================
+// layer
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 19;
+  visibility: hidden;
+}
+.layer.show-layer {
+  visibility: visible;
+  transition: $transition;
+}
+// sidebar
+
+// sidebar
+
+.sidebar {
+  font-family: $body-font;
+  position: fixed;
+  background-image: url(./imgs/paper-1074131_1920.jpg);
+  background-position: center;
+  background-position: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  box-shadow: 2px 2px 5px $nice-black;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  transform: translateX(-100%);
+  transition: $transition;
+}
+// sidebar header
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  & .form-title {
+    text-transform: capitalize;
+    padding-left: 0.8rem;
+    font-size: 2em;
+    font-family: $heading-font;
+    letter-spacing: 0.1rem;
+    color: $nice-black;
+  }
+  & button {
+    background-color: transparent;
+    border: none;
+  }
+  & .toggle-close {
+    padding: 0.25rem;
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: flex-start;
+    color: $dark-red;
+    transition: $transition;
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+  }
+}
+
+.form-container {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.form {
+  width: 100%;
+}
+// input container
+.input-container {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 3rem;
+  & .input {
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-family: $body-font;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 5px black;
+  }
+  & .input-label {
+    position: absolute;
+    text-transform: capitalize;
+    left: 1rem;
+    top: 0.8rem;
+    color: $lignt-grey;
+    transition: $transition;
+    pointer-events: none;
+    letter-spacing: 0.025rem;
+  }
+}
+// text area container
+.txtarea-container {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 8rem;
+  & .textarea {
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-family: $body-font;
+    padding: 1rem;
+
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+  }
+  & .txtarea-label {
+    position: absolute;
+    text-transform: capitalize;
+    left: 1rem;
+    top: 1rem;
+    color: $lignt-grey;
+    transition: $transition;
+    letter-spacing: 0.025rem;
+    pointer-events: none;
+  }
+}
+// input btn
+.input-btn {
+  position: absolute;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-family: $body-font;
+  padding: 0.25rem 2rem;
+  border-radius: 0.5rem;
+  background-color: $nice-black;
+  color: rgb(235, 235, 235);
+  border: 1px solid $white-grey;
+  right: 0;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+// move up on focus sidebar
+.input:focus + .input-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+  font-weight: 900;
+}
+.input:not(:placeholder-shown).input:not(:focus) + .input-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+}
+.textarea:focus + .txtarea-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+  font-weight: 900;
+}
+.textarea:not(:placeholder-shown).textarea:not(:focus) + .txtarea-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+}
+// show sidebar
+.show-sidebar {
+  transform: translateX(0);
+}
+@media screen and (max-width: 320px) {
+  .sidebar-header {
+    padding: 2rem 0.05rem;
+  }
+}
+@media screen and(min-width:565px) {
+  .sidebar {
+    width: 500px;
+  }
+}
+
+// ====================================
+// END OF SIDEBAR
+// ====================================
+
+// ====================================
+// CONTACT
+// ====================================
+
+.contact__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 25;
+}
+.show-background {
+  visibility: visible;
+  & .contact__container {
+    animation: land 1s ease-in-out forwards;
+  }
+}
+
+.contact__container {
+  background: #fcf8f4;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px 0 50px 0;
+  font-family: $body-font;
+  line-height: 2;
+  & .contact__title {
+    color: $nice-black;
+    margin-top: 3rem;
+    font-family: 'Frijole', cursive;
+    text-transform: capitalize;
+    font-size: 2.3em;
+    letter-spacing: 0.1rem;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & .contact__adress {
+    color: $nice-black;
+    text-transform: capitalize;
+    font-size: 1.1em;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & h4,
+  p {
+    color: $dark-red;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & a {
+    font-size: 2rem;
+    padding: 0.2rem;
+    color: #575757;
+    transition: all 0.5s ease;
+    &:hover {
+      color: #ddbf99;
+    }
+  }
+  & button {
+    background-color: transparent;
+    border: none;
+    & .modal-close {
+      padding: 0.25rem;
+      font-size: 2rem;
+      cursor: pointer;
+      align-self: flex-start;
+      color: $dark-red;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+@keyframes land {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// ====================================
+// END OF CONTACT
+// ====================================
+
+// ====================================
+// FOOTER
+// ====================================
+footer {
+  min-height: 20vh;
+  width: 100%;
+  background-color: $nice-black;
+  color: $white-grey;
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & a {
+    font-size: 2rem;
+    padding: 0.2rem;
+    color: $white-grey;
+    transition: all 0.5s ease;
+    &:hover {
+      color: #ddbf99;
+    }
+  }
+}
+
+// =========================================
+// MEDIA
+// =========================================
+@media screen and (min-width: $mediaScreen-width) {
+  .nav-center {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .links-container {
+    height: auto !important;
+    min-width: 50%;
+    & .links {
+      display: flex;
+      justify-content: space-between;
+      & li {
+        padding-left: 1.5rem;
+        & a {
+          font-size: 1.5rem;
+          font-family: $body-font;
+        }
+      }
+    }
+  }
+  .logo {
+    font-size: 1.3em;
+  }
+
+  .icon-container {
+    display: none;
+  }
+
+  .menu-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    & .btn {
+      margin: 0 0.5rem;
+    }
+  }
+
+  .menu-items {
+    width: 90%;
+    margin: 2rem 0;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 5rem 3rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  .single-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .single-item__img {
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  .cover-photo {
+    height: 50vh;
+  }
+  .contact__container {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .single-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .single-item__img {
+    margin-right: 1rem;
+  }
+  .links-container {
+    min-width: 45%;
+  }
+}
+// =========================================
+// END OF MEDIA
+// =========================================

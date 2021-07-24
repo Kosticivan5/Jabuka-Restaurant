@@ -1,0 +1,440 @@
+@import 'resets';
+@import 'fonts';
+@import 'variables';
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(49, 49, 49, 0.5)),
+    url(./imgs/food-2068217_1920.jpg);
+  // background-position: center;
+  background-position: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.nav-center {
+  padding-top: 1rem;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2rem;
+}
+.logo-header {
+  padding-bottom: 2rem;
+}
+.logo {
+  color: $white-grey;
+  // font-family: $heading-font;
+  font-family: 'Frijole', cursive;
+  text-transform: capitalize;
+  font-size: 1.3em;
+  text-shadow: $text-shadow;
+  letter-spacing: 0.1rem;
+  animation: land 1.5s ease-in-out forwards;
+}
+.links-container {
+  font-family: $body-font;
+  text-transform: capitalize;
+  animation: land 1.5s ease-in-out forwards;
+}
+@keyframes land {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.links li {
+  margin-top: 1rem;
+}
+
+.links a {
+  color: $white-grey;
+  font-size: 1.5em;
+  position: relative;
+  letter-spacing: 0.25rem;
+  text-shadow: $text-shadow;
+  padding: 0 5px;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: $white-grey;
+  transform: scaleX(0);
+  transition: $transition;
+}
+
+.links a:hover::after {
+  transform: scaleX(1);
+  background-color: $the-color;
+}
+@media screen and (min-width: 480px) {
+  .links a {
+    font-size: 2em;
+  }
+  .logo {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: $mediaScreen-width) {
+  .logo {
+    font-size: 2.5em;
+  }
+  .links-container {
+    margin: 0 auto;
+  }
+  .links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem 3rem;
+    grid-template-rows: repeat(2, 1fr);
+    text-align: center;
+  }
+  .links li {
+    margin-top: 0;
+  }
+  .links a {
+    font-size: 2.3em;
+  }
+  .contact__container {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .links {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+}
+
+// ====================================
+// SIDEBAR
+// ====================================
+// layer
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 19;
+  visibility: hidden;
+}
+.layer.show-layer {
+  visibility: visible;
+  transition: $transition;
+}
+
+// sidebar
+
+.sidebar {
+  font-family: $body-font;
+  position: fixed;
+  background-image: url(./imgs/paper-1074131_1920.jpg);
+  background-position: center;
+  background-position: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  box-shadow: 2px 2px 5px $nice-black;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  transform: translateX(-100%);
+  transition: $transition;
+}
+
+// sidebar header
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  & .form-title {
+    text-transform: capitalize;
+    padding-left: 0.8rem;
+    font-size: 2em;
+    font-family: $heading-font;
+    letter-spacing: 0.1rem;
+  }
+  & button {
+    background-color: transparent;
+    border: none;
+  }
+  & .toggle-close {
+    padding: 0.25rem;
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: flex-start;
+    color: $dark-red;
+    transition: $transition;
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+  }
+}
+
+.form-container {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.form {
+  width: 100%;
+}
+// input container
+.input-container {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 3rem;
+  & .input {
+    position: absolute;
+    // border-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-family: $body-font;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 5px black;
+  }
+  & .input-label {
+    position: absolute;
+    text-transform: capitalize;
+    left: 1rem;
+    top: 0.8rem;
+    color: $lignt-grey;
+    transition: $transition;
+    pointer-events: none;
+    letter-spacing: 0.025rem;
+  }
+}
+// text area container
+.txtarea-container {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 8rem;
+  & .textarea {
+    position: absolute;
+    // border-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-family: $body-font;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+  }
+  & .txtarea-label {
+    position: absolute;
+    text-transform: capitalize;
+    left: 1rem;
+    top: 1rem;
+    color: $lignt-grey;
+    transition: $transition;
+    letter-spacing: 0.025rem;
+    pointer-events: none;
+  }
+}
+// input btn
+.input-btn {
+  position: absolute;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-family: $body-font;
+  padding: 0.25rem 2rem;
+  // border-radius: 0.5rem;
+  background-color: $nice-black;
+  color: rgb(235, 235, 235);
+  border: 1px solid $white-grey;
+  right: 0;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+// move up on focus sidebar
+.input:focus + .input-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+.input:not(:placeholder-shown).input:not(:focus) + .input-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+.textarea:focus + .txtarea-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+.textarea:not(:placeholder-shown).textarea:not(:focus) + .txtarea-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+// show sidebar
+.show-sidebar {
+  transform: translateX(0);
+}
+@media screen and (max-width: 320px) {
+  .sidebar-header {
+    padding: 2rem 0.05rem;
+  }
+}
+@media screen and(min-width:565px) {
+  .sidebar {
+    width: 500px;
+  }
+}
+
+// ====================================
+// END OF SIDEBAR
+// ====================================
+
+// ====================================
+// CONTACT
+// ====================================
+
+.contact__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+.show-background {
+  visibility: visible;
+  & .contact__container {
+    animation: land 1s ease-in-out forwards;
+  }
+}
+
+.contact__container {
+  background: #fcf8f4;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px 0 50px 0;
+  font-family: $body-font;
+  line-height: 2;
+  & .contact__title {
+    color: $nice-black;
+    margin-top: 3rem;
+    font-family: 'Frijole', cursive;
+    text-transform: capitalize;
+    font-size: 2.3em;
+    letter-spacing: 0.1rem;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & .contact__adress {
+    color: $nice-black;
+    text-transform: capitalize;
+    font-size: 1.1em;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & h4,
+  p {
+    color: $dark-red;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & a {
+    font-size: 2rem;
+    padding: 0.2rem;
+    color: #575757;
+    transition: all 0.5s ease;
+    &:hover {
+      color: #ddbf99;
+    }
+  }
+  & button {
+    background-color: transparent;
+    border: none;
+    & .modal-close {
+      padding: 0.25rem;
+      font-size: 2rem;
+      cursor: pointer;
+      align-self: flex-start;
+      color: $dark-red;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+// ====================================
+// END OF CONTACT
+// ====================================
+
+// ====================================
+// FOOTER
+// ====================================
+footer {
+  font-family: $body-font;
+  min-height: 20vh;
+  width: 100%;
+  background-color: $nice-black;
+  color: $white-grey;
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & a {
+    font-size: 2rem;
+    padding: 0.2rem;
+    color: $white-grey;
+    transition: all 0.5s ease;
+    &:hover {
+      color: #ddbf99;
+    }
+  }
+}
+// ********************************************************

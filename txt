@@ -1,0 +1,479 @@
+@import 'resets';
+@import 'fonts';
+@import 'variables';
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body:not(header) {
+  font-family: 'Viaoda Libre', cursive;
+  background: rgb(222, 184, 135);
+}
+
+// ***************************************
+// LANDING
+// ***************************************
+#header {
+  width: 100%;
+  font-family: 'Great Vibes', cursive;
+}
+// ============================================
+// LOGO NAV
+// ============================================
+.nav-center {
+  width: 100%;
+
+  & .logo-header {
+    background: $nice-black;
+    padding: 0 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .logo {
+      font-size: 3rem;
+      letter-spacing: 0.05em;
+      text-transform: capitalize;
+      cursor: pointer;
+      color: $white-grey;
+      text-shadow: 4px 4px 4px #000;
+    }
+    & .icon-container {
+      transition: all 0.3s ease;
+      & .icon {
+        font-size: 2em;
+        cursor: pointer;
+        color: $white-grey;
+        text-shadow: 2px 2px 4px #000;
+        &:hover {
+          color: $lignt-grey;
+          transition: all 0.4s ease;
+        }
+      }
+    }
+  }
+}
+.rotate {
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
+// ============================================
+// NAV LINKS
+// ============================================
+.links-container {
+  position: relative;
+  z-index: 10;
+  background: $nice-black;
+  width: 100%;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  & .links li {
+    width: 100%;
+    padding: 1.5em 0;
+    & a {
+      color: $white-grey;
+      font-size: 2.5em;
+      text-transform: capitalize;
+      text-shadow: 4px 4px 4px #000;
+      &:active {
+        color: $lignt-grey;
+        transition: all 0.4s ease;
+      }
+    }
+  }
+}
+
+// ============================================
+// HEADER MEDIA SCREEN
+// ============================================
+@media screen and (min-width: $mediaScreen-width) {
+  #header {
+    & h2 {
+      font-size: 4em;
+    }
+    & .logo-header {
+      @include flexCenter();
+      opacity: 1;
+      & .logo {
+        font-size: 4rem;
+      }
+    }
+  }
+  // fixed nav
+  .nav-center {
+    display: flex;
+    &.fixed-nav {
+      position: fixed;
+      display: flex;
+      transition: all 2s ease;
+      & .logo-header {
+        opacity: 0.5;
+      }
+      & .links-container {
+        background: $nice-black;
+        & li {
+          padding: 0;
+        }
+      }
+    }
+  }
+  // toggle btn
+  .icon-container {
+    display: none;
+  }
+  // links container
+  .links-container {
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    & .links {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      & li {
+        padding-top: 0;
+        padding-bottom: 1em;
+        & a:hover {
+          color: $lignt-grey;
+          transition: all 0.5s ease;
+        }
+      }
+    }
+  }
+  // btn container
+  .menu-container {
+    & .btn-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    & .menu-items {
+      // display: grid;
+      // grid-template-columns: 300px 400px;
+      & .single-item {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        & .single-item__img {
+          width: 30%;
+          height: 60%;
+          margin-right: 2rem;
+        }
+        & .menu-description {
+          width: 30%;
+          height: 50%;
+        }
+      }
+    }
+  }
+}
+// ============================================
+// END OF HEADER MEDIA SCREEN
+// ============================================
+
+// ============================================
+// FIXED NAV
+// ============================================
+.fixed-nav {
+  position: fixed;
+  & .logo-header {
+    opacity: 0.9;
+  }
+}
+
+// ***************************************
+// MENU
+// ***************************************
+
+.menu-container {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  left: 5%;
+  top: 20%;
+  margin: 0 auto;
+  // height: 150vh;
+  border: 10px double $white-grey;
+}
+// title
+.title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  & .menu {
+    font-size: 2.5rem;
+    color: #000;
+  }
+  & .underline {
+    width: 5rem;
+    height: 0.2rem;
+    background-color: #000;
+    border-radius: 10px;
+  }
+}
+// buttons
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  & .btn {
+    font-family: 'Viaoda Libre', cursive;
+    font-size: 1.2rem;
+    width: 7rem;
+    margin: 0.2rem;
+    border-radius: 5px;
+    border: 2px solid $nice-black;
+    background-color: $nice-black;
+    color: $white-grey;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: $white-grey;
+      color: #000;
+    }
+  }
+}
+// menu items
+
+.menu-container.menu-items {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 90%;
+  margin: 0 auto;
+  & .single-item {
+    @include flexCenter();
+    flex-direction: column;
+    width: 100%;
+    height: 18rem;
+  }
+}
+.single-item__img {
+  background-image: url(./cake-1850011_1920.jpg);
+  width: 70%;
+  height: 50%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  border: 2px solid $nice-black;
+}
+.menu-description {
+  height: 40%;
+  width: 80%;
+  padding-top: 1rem;
+  & header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3em;
+    letter-spacing: 0.1rem;
+    border-bottom: 2px dotted $nice-black;
+  }
+  & p {
+    text-align: center;
+    font-family: 'Viaoda Libre', cursive;
+  }
+}
+
+// ***************************************
+// FOOTER
+// ***************************************
+
+footer {
+  bottom: 0;
+  left: 0;
+  height: 30vh;
+  width: 100%;
+  background-color: $nice-black;
+  color: $white-grey;
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & a {
+    font-size: 2.5rem;
+    padding: 0.2rem;
+    color: $white-grey;
+    transition: all 0.5s ease;
+    &:hover {
+      color: rgb(222, 184, 135);
+    }
+  }
+}
+=======================================================HTML
+<body>
+    <!-- HEADER -->
+    <header id="header">
+      <div class="nav-center">
+        <div class="logo-header">
+          <h1><a href="index.html" class="logo"> jabuka</a></h1>
+          <span class="icon-container"
+            ><i class="fas fa-utensils icon"></i
+          ></span>
+        </div>
+        <div class="links-container">
+          <ul class="links">
+            <li><a href="about.html">about</a></li>
+            <li><a href="menu.html">menus</a></li>
+            <li><a href="#">reservation</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- menu -->
+    <div class="menu-container">
+      <div class="title">
+        <h2 class="menu">Menu</h2>
+        <div class="underline"></div>
+      </div>
+      <!-- btn container -->
+      <div class="btn-container">
+        <a href="#"><button class="btn">All</button></a>
+        <a href="#"><button class="btn">Lunch</button></a>
+        <a href="#"><button class="btn">Dinner</button></a>
+        <a href="#"><button class="btn">Deserts</button></a>
+      </div>
+      <!-- menu items -->
+      <div class="menu-items">
+        <!-- single item -->
+        <div class="single-item">
+          <div class="single-item__img"></div>
+          <div class="menu-description">
+            <header class="menu-header">
+              <h4 class="name">Chocolate Cake</h4>
+              <h4 class="price">$3</h4>
+            </header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+              dolore ratione quibusdam sint laudantium?
+            </p>
+          </div>
+        </div>
+        <!-- end of single item -->
+        <!-- single item -->
+        <div class="single-item">
+          <div class="single-item__img"></div>
+          <div class="menu-description">
+            <header class="menu-header">
+              <h4 class="name">Chocolate Cake</h4>
+              <h4 class="price">$3</h4>
+            </header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+              dolore ratione quibusdam sint laudantium?
+            </p>
+          </div>
+        </div>
+        <!-- end of single item -->
+        <!-- single item -->
+        <div class="single-item">
+          <div class="single-item__img"></div>
+          <div class="menu-description">
+            <header class="menu-header">
+              <h4 class="name">Chocolate Cake</h4>
+              <h4 class="price">$3</h4>
+            </header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+              dolore ratione quibusdam sint laudantium?
+            </p>
+          </div>
+        </div>
+        <!-- end of single item -->
+        <!-- single item -->
+        <div class="single-item">
+          <div class="single-item__img"></div>
+          <div class="menu-description">
+            <header class="menu-header">
+              <h4 class="name">Chocolate Cake</h4>
+              <h4 class="price">$3</h4>
+            </header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+              dolore ratione quibusdam sint laudantium?
+            </p>
+          </div>
+        </div>
+        <!-- end of single item -->
+        <!-- single item -->
+        <div class="single-item">
+          <div class="single-item__img"></div>
+          <div class="menu-description">
+            <header class="menu-header">
+              <h4 class="name">Chocolate Cake</h4>
+              <h4 class="price">$3</h4>
+            </header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+              dolore ratione quibusdam sint laudantium?
+            </p>
+          </div>
+        </div>
+        <!-- end of single item -->
+      </div>
+    </div>
+    <!-- end of menu -->
+    <!-- END OF HEADER -->
+    <!-- FOOTER -->
+    <footer>
+      <p>23. Street south Djeram 123</p>
+      <div class="soc-container">
+        <a href="#"><i class="fab fa-instagram-square"></i></a>
+        <a href="#"><i class="fab fa-facebook-square"></i></a>
+        <a href="#"><i class="fab fa-whatsapp-square"></i></a>
+      </div>
+      <p>
+        &copy; <span class="copyright"></span> Copyright by "Jabuka" | Design IK
+      </p>
+    </footer>
+    <!-- END OF FOOTER -->
+    <script src="app.js"></script>
+  </body>
+  *************************************************
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <h2>Welcome <br />& <br />Bon Appetit</h2>
+      <div class="nav-center">
+        <div class="logo-header">
+          <h1><a href="index.html" class="logo"> jabuka</a></h1>
+          <span class="icon-container"
+            ><i class="fas fa-utensils icon"></i
+          ></span>
+        </div>
+        <div class="links-container">
+          <ul class="links">
+            <li><a href="about.html">about</a></li>
+            <li><a href="menu.html">menus</a></li>
+            <li><a href="#">reservation</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- END OF HEADER -->
+    <!-- FOOTER -->
+    <footer>
+      <p>23. Street south Djeram 123</p>
+      <div class="soc-container">
+        <a href="#"><i class="fab fa-instagram-square"></i></a>
+        <a href="#"><i class="fab fa-facebook-square"></i></a>
+        <a href="#"><i class="fab fa-whatsapp-square"></i></a>
+      </div>
+      <p>
+        &copy; <span class="copyright"></span> Copyright by "Jabuka" | Design IK
+      </p>
+    </footer>
+    <!-- END OF FOOTER -->
+    <script src="app.js"></script>
+  </body>

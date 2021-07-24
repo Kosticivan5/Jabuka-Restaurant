@@ -1,0 +1,9 @@
+.btn-style {
+  /* padding: 2rem !important;
+  padding-top: 3rem !important; */
+  border-radius: 10px;
+}
+
+.ant-btn-lg {
+  padding: 2rem;
+}

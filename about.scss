@@ -1,0 +1,623 @@
+@import 'resets';
+@import 'fonts';
+@import 'variables';
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: #fcf8f4;
+  font-family: $body-font;
+}
+.cover-photo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(49, 49, 49, 0.3)),
+    url(./imgs/menu-cover.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 50vh;
+  animation: apear 2s ease-in-out forwards;
+}
+// ====================================
+// HEADER
+// ====================================
+.header {
+  background-color: rgba(34, 34, 34, 0.9);
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 15;
+}
+.nav-center {
+  width: 90%;
+  margin: 0 auto;
+  color: $white-grey;
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: $white-grey;
+  font-family: $logo-font;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+  text-shadow: $text-shadow;
+}
+
+.icon-container {
+  font-size: 1.6em;
+  transition: $transition;
+  cursor: pointer;
+  text-shadow: $text-shadow;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    color: $lignt-grey;
+  }
+}
+
+.links-container {
+  height: 0;
+  overflow: hidden;
+  transition: $transition;
+  text-align: center;
+  & li {
+    padding: 1rem 0;
+  }
+  & a {
+    font-size: 1.5rem;
+    font-family: $body-font;
+    text-transform: capitalize;
+    color: $white-grey;
+    text-shadow: $text-shadow;
+    &:hover {
+      color: $lignt-grey;
+      transition: $transition;
+    }
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+// ANIMATION
+@keyframes apear {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// ====================================
+// TO TOP BTN
+// ====================================
+#top {
+  display: none;
+}
+#top.top-btn {
+  display: block;
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  position: fixed;
+  bottom: 20px;
+  right: 5px;
+  padding: 0.2rem 0.3rem;
+  font-size: 2em;
+  cursor: pointer;
+  color: $dark-red;
+  animation: jump 1.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+  50% {
+    transform: translateY(0.5rem);
+  }
+}
+
+// ====================================
+// SIDEBAR
+// ====================================
+// layer
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 19;
+  visibility: hidden;
+}
+.layer.show-layer {
+  visibility: visible;
+  transition: $transition;
+}
+// sidebar
+
+.sidebar {
+  font-family: $body-font;
+  position: fixed;
+  background-image: url(./imgs/paper-1074131_1920.jpg);
+  background-position: center;
+  background-position: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  box-shadow: 2px 2px 5px $nice-black;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  transform: translateX(-100%);
+  transition: $transition;
+}
+// sidebar header
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  & .form-title {
+    text-transform: capitalize;
+    padding-left: 0.8rem;
+    font-size: 2em;
+    font-family: $heading-font;
+    letter-spacing: 0.1rem;
+  }
+  & button {
+    background-color: transparent;
+    border: none;
+  }
+  & .toggle-close {
+    padding: 0.25rem;
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: flex-start;
+    color: $dark-red;
+    transition: $transition;
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+  }
+}
+
+.form-container {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.form {
+  width: 100%;
+}
+// input container
+.input-container {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 3rem;
+  & .input {
+    position: absolute;
+    // border-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-family: $body-font;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 5px black;
+  }
+  & .input-label {
+    position: absolute;
+    text-transform: capitalize;
+    left: 1rem;
+    top: 0.8rem;
+    color: $lignt-grey;
+    transition: $transition;
+    pointer-events: none;
+    letter-spacing: 0.025rem;
+  }
+}
+// text area container
+.txtarea-container {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 8rem;
+  & .textarea {
+    position: absolute;
+    // border-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-family: $body-font;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+  }
+  & .txtarea-label {
+    position: absolute;
+    text-transform: capitalize;
+    left: 1rem;
+    top: 1rem;
+    color: $lignt-grey;
+    transition: $transition;
+    letter-spacing: 0.025rem;
+    pointer-events: none;
+  }
+}
+// input btn
+.input-btn {
+  position: absolute;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-family: $body-font;
+  padding: 0.25rem 2rem;
+  // border-radius: 0.5rem;
+  background-color: $nice-black;
+  color: rgb(235, 235, 235);
+  border: 1px solid $white-grey;
+  right: 0;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+// move up on focus sidebar
+.input:focus + .input-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+.input:not(:placeholder-shown).input:not(:focus) + .input-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+.textarea:focus + .txtarea-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+.textarea:not(:placeholder-shown).textarea:not(:focus) + .txtarea-label {
+  top: -1.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: $nice-black;
+}
+// show sidebar
+.show-sidebar {
+  transform: translateX(0);
+}
+@media screen and (max-width: 320px) {
+  .sidebar-header {
+    padding: 2rem 0.05rem;
+  }
+}
+@media screen and(min-width:565px) {
+  .sidebar {
+    width: 500px;
+  }
+}
+
+// ====================================
+// END OF SIDEBAR
+// ====================================
+
+// ====================================
+// CONTACT
+// ====================================
+
+.contact__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 25;
+}
+.show-background {
+  visibility: visible;
+  & .contact__container {
+    animation: land 1s ease-in-out forwards;
+  }
+}
+
+.contact__container {
+  background: #fcf8f4;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px 0 50px 0;
+  font-family: $body-font;
+  line-height: 2;
+  & .contact__title {
+    color: $nice-black;
+    margin-top: 3rem;
+    font-family: 'Frijole', cursive;
+    text-transform: capitalize;
+    font-size: 2.3em;
+    letter-spacing: 0.1rem;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & .contact__adress {
+    color: $nice-black;
+    text-transform: capitalize;
+    font-size: 1.1em;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & h4,
+  p {
+    color: $dark-red;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    animation: land 1.5s ease-in-out forwards;
+  }
+  & a {
+    font-size: 2rem;
+    padding: 0.2rem;
+    color: #575757;
+    transition: all 0.5s ease;
+    &:hover {
+      color: #ddbf99;
+    }
+  }
+  & button {
+    background-color: transparent;
+    border: none;
+    & .modal-close {
+      padding: 0.25rem;
+      font-size: 2rem;
+      cursor: pointer;
+      align-self: flex-start;
+      color: $dark-red;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+@keyframes land {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// ====================================
+// END OF CONTACT
+// ====================================
+
+// ====================================
+// SECTION CENTER
+// ====================================
+
+.section-center {
+  min-height: 100vh;
+  width: 100%;
+  margin: 2rem auto;
+  animation: apear 1.5s ease-in-out forwards;
+}
+.title {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 2em;
+  letter-spacing: 0.1rem;
+}
+
+.about {
+  font-family: $heading-font;
+  color: $nice-black;
+  text-shadow: 0.5px 0.5px 2px #000;
+  text-transform: capitalize;
+}
+
+.underline {
+  width: 3rem;
+  height: 0.2rem;
+  background-color: $nice-black;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.about__article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 30%;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.about-img {
+  height: 100%;
+  width: 100%;
+  & img {
+    height: 100%;
+    width: 100%;
+    box-shadow: 2px 2px 5px $nice-black;
+  }
+}
+
+.about__description {
+  width: 95%;
+  height: 100%;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 2px 2px 5px $nice-black;
+  background-color: $nice-black;
+  color: $white-grey;
+  margin-top: -20px;
+  & .about__header {
+    border-bottom: 1px solid $white-grey;
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto 0.5rem auto;
+  }
+  & .name {
+    text-transform: capitalize;
+    font-family: $heading-font;
+    letter-spacing: 0.1rem;
+    font-size: 1.5em;
+  }
+  & p {
+    max-width: 50ch;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 480px) {
+  .about__description {
+    max-width: 450px;
+  }
+  .about-img {
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .section-center {
+    width: 100%;
+  }
+  .about__article {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    flex-direction: row;
+    width: 100%;
+    // background-color: rgb(253, 245, 235);
+    background-color: $nice-black;
+    box-shadow: 2px 2px 10px $nice-black;
+    &:hover .about__description {
+      transform: translateY(-10px);
+    }
+  }
+  .about-img {
+    max-width: 400px;
+
+    & img {
+      height: 100%;
+      width: 100%;
+      box-shadow: 4px 4px 10px $white-grey;
+      border-radius: 70px 0 30px 0;
+    }
+  }
+  .about__description {
+    width: 40%;
+    margin-top: 0;
+    margin-left: 1rem;
+    // border-radius: 70px 0 30px 0;
+    transition: $transition;
+  }
+  .contact__container {
+    font-size: 1.5em;
+  }
+}
+
+// ====================================
+// END OF SECTION CENTER
+// ====================================
+
+// ====================================
+// FOOTER
+// ====================================
+footer {
+  min-height: 20vh;
+  width: 100%;
+  background-color: $nice-black;
+  color: $white-grey;
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & a {
+    font-size: 2rem;
+    padding: 0.2rem;
+    color: $white-grey;
+    transition: all 0.5s ease;
+    &:hover {
+      color: #ddbf99;
+    }
+  }
+}
+
+// =========================================
+// MEDIA
+// =========================================
+@media screen and (min-width: $mediaScreen-width) {
+  .nav-center {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .links-container {
+    height: auto !important;
+    min-width: 50%;
+    & .links {
+      display: flex;
+      justify-content: space-between;
+      & li {
+        padding: 1rem 0.75rem;
+        & a {
+          font-size: 1.5rem;
+          font-family: $body-font;
+        }
+      }
+    }
+  }
+  .logo {
+    font-size: 1.3em;
+  }
+
+  .icon-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .links-container {
+    min-width: 45%;
+  }
+}
+// =========================================
+// END OF MEDIA
+// =========================================
